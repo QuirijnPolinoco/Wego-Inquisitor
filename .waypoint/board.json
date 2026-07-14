@@ -1,11 +1,6 @@
 {
   "todo": [],
-  "in_progress": [
-    {
-      "title": "Address Copilot PR review feedback (jsonStore, setup, give-rank)",
-      "desc": "Fix write-queue stall after failed write; use permission names in /setup; compute assignableRoles once in /give-rank"
-    }
-  ],
+  "in_progress": [],
   "in_review": [],
   "done": [
     {
@@ -30,6 +25,10 @@
     },
     {
       "title": "README with setup, Discord portal config, and extension guide"
+    },
+    {
+      "title": "Address Copilot PR review feedback (jsonStore, setup, give-rank)",
+      "desc": "Fix write-queue stall after failed write; use permission names in /setup; compute assignableRoles once in /give-rank"
     }
   ]
 }
