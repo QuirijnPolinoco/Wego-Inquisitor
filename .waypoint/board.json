@@ -1,0 +1,30 @@
+{
+  "todo": [],
+  "in_progress": [],
+  "in_review": [],
+  "done": [
+    {
+      "title": "Scaffold discord.js bot project (structure, config, package.json)",
+      "desc": "Modular client, intents, env-driven config, logger, JSON persistence layer"
+    },
+    {
+      "title": "Delayed New Wegos role assignment after 1 hour",
+      "desc": "guildMemberAdd records join time; sweeper grants role after delay; survives restarts"
+    },
+    {
+      "title": "Mute new members until they hold the New Wegos role",
+      "desc": "/setup command that denies Send Messages to @everyone and allows New Wegos across channels"
+    },
+    {
+      "title": "/give-rank command with autocomplete rank suggestions",
+      "desc": "Slash command, user + rank options, arrow-key autocomplete over configured ranks"
+    },
+    {
+      "title": "Command + event auto-loader and slash-command deploy script",
+      "desc": "Extensible handlers so new commands/events drop in as files; deploy-commands.js"
+    },
+    {
+      "title": "README with setup, Discord portal config, and extension guide"
+    }
+  ]
+}

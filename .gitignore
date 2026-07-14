@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+
+# Runtime persistence — keep the folder, ignore its contents
+data/*.json
+!data/.gitkeep
