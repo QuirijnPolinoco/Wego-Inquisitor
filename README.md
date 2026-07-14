@@ -104,3 +104,17 @@ src/
 **Add an event:** create `src/events/myEvent.js` exporting `name` (a `discord.js` `Events` value), optional `once`, and `execute(...args, client)`. It's registered on next start.
 
 **Swap the storage:** `store/jsonStore.js` is a small interface (`get/set/delete/values`). Replace its internals with SQLite/Redis without touching callers.
+
+---
+
+## Security & secrets
+
+This is a public repository — never commit real credentials. Your bot token,
+application ID, and server IDs belong in a local `.env` (git-ignored); only
+`.env.example` with placeholders is tracked, and runtime data under `data/`
+(member IDs) is ignored too. If a token ever leaks, reset it in the Discord
+Developer Portal. See [`SECURITY.md`](SECURITY.md) for reporting a vulnerability.
+
+## License
+
+[MIT](LICENSE) © Quirijn van der Zanden
