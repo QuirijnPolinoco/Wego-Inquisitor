@@ -1,5 +1,5 @@
 {
-  "summary": "Wego Inquisitor — a robust, extensible discord.js bot for the Wego server: new members are muted and only receive the 'New Wegos' role after a 1-hour delay, plus slash commands like /give-rank with autocomplete suggestion boxes.",
+  "summary": "Wego Inquisitor — a robust, extensible discord.js bot for the Wego server (public repo): new members are muted and only receive the 'New Wegos' role after a 1-hour delay, plus slash commands like /give-rank with autocomplete suggestion boxes. Secrets stay in a git-ignored .env; only placeholders are committed.",
   "stack": ["Node.js (ESM)", "discord.js v14", "dotenv", "JSON file persistence"],
   "sections": [
     {
@@ -22,6 +22,7 @@
     { "t": "/give-rank command with autocomplete", "done": true },
     { "t": "Command/event auto-loader + deploy script", "done": true },
     { "t": "README and docs", "done": true },
+    { "t": "Public-repo hardening (MIT LICENSE, .env hygiene, SECURITY.md)", "done": true },
     { "t": "Live-tested against a real Discord server", "done": false }
   ]
 }

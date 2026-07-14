@@ -29,6 +29,10 @@
     {
       "title": "Address Copilot PR review feedback (jsonStore, setup, give-rank)",
       "desc": "Fix write-queue stall after failed write; use permission names in /setup; compute assignableRoles once in /give-rank"
+    },
+    {
+      "title": "Harden repo for public visibility (LICENSE, .gitignore, SECURITY.md)",
+      "desc": "Add MIT LICENSE, ignore all .env variants, add SECURITY.md, remove stray artifact; supersede PR #2"
     }
   ]
 }
