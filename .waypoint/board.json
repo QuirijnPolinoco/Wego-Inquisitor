@@ -1,6 +1,11 @@
 {
   "todo": [],
-  "in_progress": [],
+  "in_progress": [
+    {
+      "title": "Address Copilot PR review feedback (jsonStore, setup, give-rank)",
+      "desc": "Fix write-queue stall after failed write; use permission names in /setup; compute assignableRoles once in /give-rank"
+    }
+  ],
   "in_review": [],
   "done": [
     {

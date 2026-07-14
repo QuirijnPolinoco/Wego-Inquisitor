@@ -57,8 +57,17 @@ export class JsonStore {
 
   // Serialize writes so concurrent set/delete calls can't interleave.
   #persist() {
-    this.#writing = this.#writing.then(() => this.#writeToDisk());
-    return this.#writing;
+    // Chain off the previous write, but recover from its failure so one bad
+    // write (disk full, permissions) doesn't permanently reject the queue and
+    // block every future set/delete.
+    const attempt = this.#writing.then(
+      () => this.#writeToDisk(),
+      () => this.#writeToDisk(),
+    );
+    // The caller awaits `attempt` and still sees its own error; the chain we
+    // keep for the next write swallows it so the queue stays alive.
+    this.#writing = attempt.catch(() => {});
+    return attempt;
   }
 
   async #writeToDisk() {

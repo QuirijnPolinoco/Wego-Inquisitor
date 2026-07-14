@@ -44,11 +44,15 @@ export default {
     const rankValue = interaction.options.getString('rank', true);
     const guild = interaction.guild;
 
+    // Compute the assignable set once so role lookup and the assignability
+    // check see a consistent snapshot (and we don't refilter twice).
+    const assignable = assignableRoles(guild);
+
     // The autocomplete value is a role ID, but accept a name too in case the
     // user typed one manually.
     const role =
       guild.roles.cache.get(rankValue) ??
-      assignableRoles(guild).find((r) => r.name.toLowerCase() === rankValue.toLowerCase());
+      assignable.find((r) => r.name.toLowerCase() === rankValue.toLowerCase());
 
     if (!role) {
       await interaction.reply({
@@ -58,7 +62,7 @@ export default {
       return;
     }
 
-    if (!assignableRoles(guild).some((r) => r.id === role.id)) {
+    if (!assignable.some((r) => r.id === role.id)) {
       await interaction.reply({
         content: `❌ I can't assign **${role.name}** — it's above my highest role or not in the allowed list.`,
         flags: MessageFlags.Ephemeral,

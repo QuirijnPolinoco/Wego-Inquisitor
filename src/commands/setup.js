@@ -6,13 +6,15 @@ import {
 } from 'discord.js';
 import { resolveNewWegosRole } from '../utils/roles.js';
 
-// Permissions that constitute "being able to talk" in a channel.
+// Permissions that constitute "being able to talk" in a channel. These are
+// the permission *names* (keys of PermissionFlagsBits) because permission
+// overwrite option objects are keyed by name.
 const TALK_PERMISSIONS = [
-  PermissionFlagsBits.SendMessages,
-  PermissionFlagsBits.SendMessagesInThreads,
-  PermissionFlagsBits.CreatePublicThreads,
-  PermissionFlagsBits.CreatePrivateThreads,
-  PermissionFlagsBits.AddReactions,
+  'SendMessages',
+  'SendMessagesInThreads',
+  'CreatePublicThreads',
+  'CreatePrivateThreads',
+  'AddReactions',
 ];
 
 const CONFIGURABLE_CHANNEL_TYPES = new Set([
