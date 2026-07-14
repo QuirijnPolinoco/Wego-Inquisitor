@@ -1,0 +1,27 @@
+{
+  "summary": "Wego Inquisitor — a robust, extensible discord.js bot for the Wego server: new members are muted and only receive the 'New Wegos' role after a 1-hour delay, plus slash commands like /give-rank with autocomplete suggestion boxes.",
+  "stack": ["Node.js (ESM)", "discord.js v14", "dotenv", "JSON file persistence"],
+  "sections": [
+    {
+      "h": "Delayed role + mute",
+      "body": "On guildMemberAdd the member is recorded as pending (persisted to data/pending-members.json) instead of being given a role. A polling scheduler grants the New Wegos role once the configured delay (default 60m) elapses, and catches anyone whose delay passed while the bot was offline. /setup denies send-message permissions to @everyone and allows them for New Wegos across all channels, so pending members stay muted until verified."
+    },
+    {
+      "h": "Slash commands with autocomplete",
+      "body": "/give-rank @user <rank> grants a role; the rank option uses Discord autocomplete (arrow-key suggestion box) sourced from roles the bot can manage / the ASSIGNABLE_RANKS allowlist. /setup locks channels; /ping is a health-check example. interactionCreate routes both command execution and autocomplete."
+    },
+    {
+      "h": "Extensible architecture",
+      "body": "Commands (src/commands) and events (src/events) are auto-loaded from their folders — adding a feature is dropping in one file. Config is centralised and validated in config.js; persistence sits behind a small swappable JsonStore interface; a leveled logger and deploy-commands script round it out."
+    }
+  ],
+  "milestones": [
+    { "t": "Project scaffold, config, logging, persistence", "done": true },
+    { "t": "Delayed New Wegos role assignment after 1 hour", "done": true },
+    { "t": "Mute new members until verified (/setup)", "done": true },
+    { "t": "/give-rank command with autocomplete", "done": true },
+    { "t": "Command/event auto-loader + deploy script", "done": true },
+    { "t": "README and docs", "done": true },
+    { "t": "Live-tested against a real Discord server", "done": false }
+  ]
+}
